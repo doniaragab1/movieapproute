@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/theme_data.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/theme/theme.dart';
+import 'package:movie_app_route/theme/theme.dart';
 
 class LightTheme extends BaseTheme
 {
