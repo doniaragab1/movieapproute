@@ -382,11 +382,8 @@ class _RegisterState extends State<Register> {
               child: ElevatedButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    Map data = {
-                      'email': emailController.text.toString(),
-                      'password': passwordController.text.toString()
-                    };
-                    ApiManager.createAccount();
+
+                    ApiManager.createAccount(nameController.text,emailController.text,passwordController.text,phoneController.text,selectedAvatar);
 
                     Navigator.pushNamed(context, Login.routeName);
                   }
