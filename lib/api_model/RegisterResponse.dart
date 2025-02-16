@@ -1,76 +1,69 @@
 class RegisterResponse {
-  final String message;
-  final UserData data;
+  String? message;
+  Data? data;
 
-  RegisterResponse({required this.message, required this.data});
+  RegisterResponse({this.message, this.data});
 
-  // Factory constructor to parse JSON
-  factory RegisterResponse.fromJson(Map<String, dynamic> json) {
-    return RegisterResponse(
-      message: json['message'],
-      data: UserData.fromJson(json['data']),
-    );
+  RegisterResponse.fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
-  // Method to convert to JSON
   Map<String, dynamic> toJson() {
-    return {
-      'message': message,
-      'data': data.toJson(),
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    return data;
   }
 }
 
-class UserData {
-  final String email;
-  final String password;
-  final String name;
-  final String phone;
-  final int avaterId;
-  final String id;
-  final String createdAt;
-  final String updatedAt;
-  final int v;
+class Data {
+  String? email;
+  String? password;
+  String? name;
+  String? phone;
+  int? avaterId;
+  String? sId;
+  String? createdAt;
+  String? updatedAt;
+  int? iV;
 
-  UserData({
-    required this.email,
-    required this.password,
-    required this.name,
-    required this.phone,
-    required this.avaterId,
-    required this.id,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
-  });
+  Data(
+      {this.email,
+        this.password,
+        this.name,
+        this.phone,
+        this.avaterId,
+        this.sId,
+        this.createdAt,
+        this.updatedAt,
+        this.iV});
 
-  // Factory constructor to parse JSON
-  factory UserData.fromJson(Map<String, dynamic> json) {
-    return UserData(
-      email: json['email'],
-      password: json['password'],
-      name: json['name'],
-      phone: json['phone'],
-      avaterId: json['avaterId'],
-      id: json['_id'],
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
-      v: json['__v'],
-    );
+  Data.fromJson(Map<String, dynamic> json) {
+    email = json['email'];
+    password = json['password'];
+    name = json['name'];
+    phone = json['phone'];
+    avaterId = json['avaterId'];
+    sId = json['_id'];
+    createdAt = json['createdAt'];
+    updatedAt = json['updatedAt'];
+    iV = json['__v'];
   }
 
-  // Method to convert to JSON
   Map<String, dynamic> toJson() {
-    return {
-      'email': email,
-      'password': password,
-      'name': name,
-      'phone': phone,
-      'avaterId': avaterId,
-      '_id': id,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
-      '__v': v,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['email'] = this.email;
+    data['password'] = this.password;
+    data['name'] = this.name;
+    data['phone'] = this.phone;
+    data['avaterId'] = this.avaterId;
+    data['_id'] = this.sId;
+    data['createdAt'] = this.createdAt;
+    data['updatedAt'] = this.updatedAt;
+    data['__v'] = this.iV;
+    return data;
   }
 }
